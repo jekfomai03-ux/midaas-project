@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Кофейня — авторский кофе и атмосфера" />
+    <title>Кофейня</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <header class="header" id="top">
+      <div class="header__inner">
+        <a href="#top" class="logo" aria-label="На главную">
+          <span class="logo__placeholder" id="logo-slot">
+            <!-- Замените этот блок на &lt;img src="assets/logo.svg" alt="Логотип" /&gt; когда будет готов логотип -->
+            <span class="logo__mark" aria-hidden="true"></span>
+            <span class="logo__text">Кофейня</span>
+          </span>
+        </a>
+        <button
+          type="button"
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          aria-label="Открыть меню"
+        >
+          <span class="nav-toggle__line"></span>
+          <span class="nav-toggle__line"></span>
+        </button>
+        <nav class="nav" id="main-nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li><a href="#menu">Меню</a></li>
+            <li><a href="#features">Почему мы</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#visit">Визит</a></li>
+            <li><a href="#contact">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <p class="hero__eyebrow">С 8:00 до 22:00</p>
+          <h1 class="hero__title" id="hero-title">Кофе без лишнего шума</h1>
+          <p class="hero__lead">
+            Обжарка на месте, сезонные напитки — всё в сдержанной
+            чёрно-белой гамме, как и этот сайт.
+          </p>
+          <a href="#menu" class="btn btn--primary">Смотреть меню</a>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__frame"></div>
+        </div>
+      </section>
+
+      <section class="section features reveal" id="features" aria-labelledby="features-title">
+        <div class="section__head">
+          <h2 class="section__title" id="features-title">Почему к нам возвращаются</h2>
+          <p class="section__subtitle">Три вещи, которые мы не меняем из сезона в сезон</p>
+        </div>
+        <ul class="features__list">
+          <li class="feature">
+            <span class="feature__icon" aria-hidden="true"></span>
+            <h3 class="feature__title">Зерно</h3>
+            <p class="feature__text">Прямые поставки и контроль обжарки: каждая партия cupping до попадания в хоппер.</p>
+          </li>
+          <li class="feature">
+            <span class="feature__icon feature__icon--lines" aria-hidden="true"></span>
+            <h3 class="feature__title">Бар</h3>
+            <p class="feature__text">Короткое меню и предсказуемые рецептуры — без сюрпризов в чашке.</p>
+          </li>
+          <li class="feature">
+            <span class="feature__icon feature__icon--grid" aria-hidden="true"></span>
+            <h3 class="feature__title">Зал</h3>
+            <p class="feature__text">Тихие столы, мягкий свет и место для книги или ноутбука без лишнего шума.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section menu menu--compact" id="menu" aria-labelledby="menu-title">
+        <div class="section__head section__head--tight">
+          <h2 class="section__title" id="menu-title">Меню</h2>
+          <p class="section__subtitle">Разделы и поиск — чтобы быстро найти нужное.</p>
+        </div>
+
+        <div class="menu__toolbar">
+          <label class="menu__search-label visually-hidden" for="menu-search">Поиск по меню</label>
+          <input
+            type="search"
+            id="menu-search"
+            class="menu__search"
+            placeholder="Например: капучино, раф, чай…"
+            autocomplete="off"
+            enterkeyhint="search"
+          />
+          <p class="menu__search-status" id="menu-search-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <nav class="menu__cats" aria-label="Разделы меню">
+          <a class="menu__cat-link" href="#menu-classic">Классика</a>
+          <a class="menu__cat-link" href="#menu-milk">С молоком</a>
+          <a class="menu__cat-link" href="#menu-filter">Фильтр и чай</a>
+          <a class="menu__cat-link" href="#menu-cold">Холодные</a>
+          <a class="menu__cat-link" href="#menu-other">Не кофе</a>
+          <a class="menu__cat-link" href="#menu-food">Еда</a>
+        </nav>
+
+        <div class="menu__body">
+          <p class="menu__empty" id="menu-empty" hidden>По запросу ничего не найдено — попробуйте другое слово.</p>
+
+          <section class="menu-category" id="menu-classic" data-menu-category>
+            <h3 class="menu-category__title">Классика и эспрессо</h3>
+            <div class="menu__grid menu__grid--dense">
+              <article class="menu-card">
+                <h4 class="menu-card__name">Эспрессо</h4>
+                <p class="menu-card__desc">Классика, двойной по запросу</p>
+                <span class="menu-card__price">120 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Доппио</h4>
+                <p class="menu-card__desc">Двойной эспрессо</p>
+                <span class="menu-card__price">180 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Американо</h4>
+                <p class="menu-card__desc">Эспрессо + горячая вода</p>
+                <span class="menu-card__price">150 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Макиато</h4>
+                <p class="menu-card__desc">Эспрессо с пенкой молока</p>
+                <span class="menu-card__price">160 ₽</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="menu-category" id="menu-milk" data-menu-category>
+            <h3 class="menu-category__title">С молоком</h3>
+            <div class="menu__grid menu__grid--dense">
+              <article class="menu-card">
+                <h4 class="menu-card__name">Капучино</h4>
+                <p class="menu-card__desc">Молоко 3,8%, пена шёлковая</p>
+                <span class="menu-card__price">190 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Латте</h4>
+                <p class="menu-card__desc">Больше молока, мягкий вкус</p>
+                <span class="menu-card__price">200 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Флэт уайт</h4>
+                <p class="menu-card__desc">Меньше пены, больше кофе</p>
+                <span class="menu-card__price">210 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Раф</h4>
+                <p class="menu-card__desc">Сливки, ваниль по желанию</p>
+                <span class="menu-card__price">230 ₽</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="menu-category" id="menu-filter" data-menu-category>
+            <h3 class="menu-category__title">Фильтр и чай</h3>
+            <div class="menu__grid menu__grid--dense">
+              <article class="menu-card">
+                <h4 class="menu-card__name">V60</h4>
+                <p class="menu-card__desc">Один сорт, чистый вкус</p>
+                <span class="menu-card__price">250 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Кемекс</h4>
+                <p class="menu-card__desc">Светлый чашечный профиль</p>
+                <span class="menu-card__price">260 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Чай листовой</h4>
+                <p class="menu-card__desc">Чёрный, зелёный, травяной</p>
+                <span class="menu-card__price">от 150 ₽</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="menu-category" id="menu-cold" data-menu-category>
+            <h3 class="menu-category__title">Холодные напитки</h3>
+            <div class="menu__grid menu__grid--dense">
+              <article class="menu-card">
+                <h4 class="menu-card__name">Айс латте</h4>
+                <p class="menu-card__desc">Лёд, молоко, эспрессо</p>
+                <span class="menu-card__price">220 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Холодный брю</h4>
+                <p class="menu-card__desc">Долгий пролив, лёд</p>
+                <span class="menu-card__price">280 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Тоник + эспрессо</h4>
+                <p class="menu-card__desc">Цитрус</p>
+                <span class="menu-card__price">240 ₽</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="menu-category" id="menu-other" data-menu-category>
+            <h3 class="menu-category__title">Без кофе</h3>
+            <div class="menu__grid menu__grid--dense">
+              <article class="menu-card">
+                <h4 class="menu-card__name">Какао</h4>
+                <p class="menu-card__desc">Тёмный шоколад</p>
+                <span class="menu-card__price">180 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Матча латте</h4>
+                <p class="menu-card__desc">Чай и молоко</p>
+                <span class="menu-card__price">260 ₽</span>
+              </article>
+              <article class="menu-card">
+                <h4 class="menu-card__name">Лимонад</h4>
+                <p class="menu-card__desc">Сезонный</p>
+                <span class="menu-card__price">170 ₽</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="menu-category" id="menu-food" data-menu-category>
+            <h3 class="menu-category__title">Еда и десерты</h3>
+            <div class="menu__grid menu__grid--dense menu__grid--food">
+              <article class="menu-card menu-card--row">
+                <h4 class="menu-card__name">Круассан</h4>
+                <p class="menu-card__desc">Сливочное масло</p>
+                <span class="menu-card__price">140 ₽</span>
+              </article>
+              <article class="menu-card menu-card--row">
+                <h4 class="menu-card__name">Брауни</h4>
+                <p class="menu-card__desc">Шоколад</p>
+                <span class="menu-card__price">160 ₽</span>
+              </article>
+              <article class="menu-card menu-card--row">
+                <h4 class="menu-card__name">Сырники (2 шт.)</h4>
+                <p class="menu-card__desc">Сметана / ягоды</p>
+                <span class="menu-card__price">220 ₽</span>
+              </article>
+              <article class="menu-card menu-card--row">
+                <h4 class="menu-card__name">Сэндвич</h4>
+                <p class="menu-card__desc">Курица, зерновой хлеб</p>
+                <span class="menu-card__price">290 ₽</span>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section gallery reveal" id="gallery" aria-labelledby="gallery-title">
+        <div class="section__head">
+          <h2 class="section__title" id="gallery-title">Атмосфера</h2>
+          <p class="section__subtitle">Замените заглушки на свои фото — чёрно-белые снимки впишутся идеально</p>
+        </div>
+        <div class="gallery__grid">
+          <figure class="gallery__item gallery__item--tall">
+            <div class="gallery__placeholder">Фото зала</div>
+            <figcaption class="visually-hidden">Интерьер</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <div class="gallery__placeholder">Барная стойка</div>
+            <figcaption class="visually-hidden">Бар</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <div class="gallery__placeholder">Чашка</div>
+            <figcaption class="visually-hidden">Напиток</figcaption>
+          </figure>
+          <figure class="gallery__item gallery__item--wide">
+            <div class="gallery__placeholder">Деталь</div>
+            <figcaption class="visually-hidden">Деталь интерьера</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="about__layout">
+          <div class="about__text">
+            <h2 class="section__title" id="about-title">О нас</h2>
+            <p>
+              Мы обжариваем зерно небольшими партиями и держим бар коротким:
+              несколько базовых позиций, которые делаем стабильно. Без ярких
+              акцентов в интерьере — только свет, тень и запах кофе.
+            </p>
+            <p>
+              Логотип в шапке можно заменить на свой — сейчас стоит нейтральная
+              заглушка, остальной сайт уже в единой чёрно-белой гамме.
+            </p>
+          </div>
+          <div class="about__panel" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="section visit" id="visit" aria-labelledby="visit-title">
+        <div class="section__head">
+          <h2 class="section__title" id="visit-title">Как добраться</h2>
+          <p class="section__subtitle">Адрес и время работы</p>
+        </div>
+        <div class="visit__grid">
+          <div class="visit__block">
+            <h3 class="visit__label">Адрес</h3>
+            <p>
+              Республика Северная Осетия — Алания,<br />
+              г. Владикавказ, ул. Астана Кесаева, 44
+            </p>
+          </div>
+          <div class="visit__block">
+            <h3 class="visit__label">Часы</h3>
+            <p>Пн–Вс: 8:00 — 22:00</p>
+          </div>
+          <div class="visit__block visit__block--wide">
+            <h3 class="visit__label">Карта</h3>
+            <div class="map-wrap">
+              <iframe
+                class="map__iframe"
+                src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;from=api-maps&amp;ll=44.624557%2C43.042152&amp;z=17&amp;pt=44.624557%2C43.042152%2Cpm2rdm"
+                title="Кофейня на карте: Владикавказ, ул. Астана Кесаева, 44"
+                width="560"
+                height="400"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <p class="map__hint">
+              <a
+                class="map__external"
+                href="https://yandex.ru/maps/?pt=44.624557%2C43.042152&amp;z=17&amp;l=map"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Открыть адрес в Яндекс.Картах</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact__inner">
+          <h2 class="section__title" id="contact-title">Написать нам</h2>
+          <form class="form" id="contact-form" novalidate>
+            <div class="form__row">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+            </div>
+            <div class="form__row">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+            <div class="form__row">
+              <label for="message">Сообщение</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Отправить</button>
+            <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__col">
+          <p class="footer__brand">Кофейня</p>
+          <p class="footer__tagline">Кофе · тишина · чёрное и белое</p>
+        </div>
+        <div class="footer__col footer__contacts">
+          <a href="tel:+79000000000" class="footer__link">+7 (900) 000-00-00</a>
+          <a href="mailto:hello@coffee.local" class="footer__link">hello@coffee.local</a>
+        </div>
+        <div class="footer__col footer__social">
+          <span class="footer__social-label">Соцсети</span>
+          <div class="footer__social-links">
+            <a href="#" class="footer__social-link" aria-label="Telegram">TG</a>
+            <a href="#" class="footer__social-link" aria-label="ВКонтакте">VK</a>
+          </div>
+        </div>
+        <p class="footer__copy">© <span id="year"></span> Кофейня</p>
+      </div>
+    </footer>
+
+    <button type="button" class="back-to-top" id="back-to-top" aria-label="Наверх" hidden>
+      <span aria-hidden="true">↑</span>
+    </button>
+
+    <script src="main.js"></script>
+  </body>
+</html>
